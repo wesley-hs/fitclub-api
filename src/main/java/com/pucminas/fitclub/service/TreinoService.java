@@ -2,11 +2,13 @@ package com.pucminas.fitclub.service;
 
 import com.pucminas.fitclub.repository.entity.Treino;
 import com.pucminas.fitclub.repository.TreinoRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class TreinoService {
 
     @Autowired

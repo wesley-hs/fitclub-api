@@ -1,5 +1,6 @@
 package com.pucminas.fitclub.controller;
 
+import com.pucminas.fitclub.dto.TreinoRequestDTO;
 import com.pucminas.fitclub.repository.entity.Treino;
 import com.pucminas.fitclub.service.TreinoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,14 @@ public class TreinoController {
     private TreinoService treinoService;
 
     @PostMapping
-    public ResponseEntity<Treino> criarTreino(@RequestBody Treino treino) {
+    public ResponseEntity<Treino> criarTreino(@RequestBody TreinoRequestDTO dto) {
+        Treino treino = new Treino();
+        treino.setAlunoId(dto.getAlunoId());
+        treino.setNomeDoTreino(dto.getNomeDoTreino());
+        treino.setExercicios(dto.getExercicios());
+
         Treino novoTreino = treinoService.salvarTreino(treino);
-        return ResponseEntity.ok(novoTreino);
+        return ResponseEntity.status(201).body(novoTreino);
     }
 
     @GetMapping("/aluno/{alunoId}")
