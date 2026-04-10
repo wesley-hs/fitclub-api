@@ -1,0 +1,16 @@
+### Criar um novo Treino (POST)
+POST http://localhost:8080/api/treinos
+Content-Type: application/json
+
+{
+  "nomeDoTreino": "Treino de Peito",
+  "alunoId": "123",
+  "instrutorId": "999",
+  "exercicios": ["Supino", "Crucifixo"]
+}
+
+### Listar todos os treinos (GET)
+GET http://localhost:8080/api/treinos
+
+### Buscar treinos de um aluno específico (GET com ID)
+GET http://localhost:8080/api/treinos/aluno/123
