@@ -1,0 +1,41 @@
+### Variáveis Globais
+@host = http://localhost:8080
+@email = wesley@puc.com
+@senha = 999
+
+### 1. Criar um novo Usuário )Register)
+POST {{host}}/auth/register
+Content-Type: application/json
+
+{
+  "nome": "Wesley Henrique",
+  "email": "{{email}}",
+  "password": "{{senha}}",
+  "role": "USER"
+}
+
+### 2. Rrealizar LOgin para obter o Token JWT
+# @name login
+POST {{host}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{senha}}"
+}
+
+### 3. Criar um novo Treino (Exige Token)
+# Pegue o token gerado no passo anterior e cole abaixo após "Bearer"
+POST {{host}}/treinos
+Content-Type: application/json
+Authorization: Bearer COLE_O_TOKEN_AQUI
+
+{
+  "nomeDoTreino": "Treino de Peito",
+  "alunoId": "123",
+  "exercicios": ["Supino Reto", "Crucifixo", "Flexão"]
+}
+
+### 4. Listar todos os treinos (Exige Token)
+GET {{host}}/treinos
+Authorization: Bearer COLE_O_TOKEN_AQUI
