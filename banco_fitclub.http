@@ -1,16 +1,26 @@
 ### Criar um novo Treino (POST)
-POST http://localhost:8080/api/treinos
+POST http://localhost:8080/auth/register
 Content-Type: application/json
 
 {
-  "nomeDoTreino": "Treino de Peito",
-  "alunoId": "123",
-  "instrutorId": "999",
-  "exercicios": ["Supino", "Crucifixo"]
+  "nome": "Wesley Henrique",
+  "email": "wesley@puc.com",
+  "password": "999",
+  "role": "USER"
 }
 
-### Listar todos os treinos (GET)
-GET http://localhost:8080/api/treinos
+### Criar um novo Treino
+POST http://localhost:8080/treinos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3ZXNsZXlAcHVjLmNvbSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc3NTkxNDI0NCwiZXhwIjoxNzc1OTE3ODQ0fQ.R-XQMfBhUgyfeYZju-s_XWyh0lcz6CCwZuSMKOuBoKM
 
-### Buscar treinos de um aluno específico (GET com ID)
-GET http://localhost:8080/api/treinos/aluno/123
+{
+  "nomeDoTreino": "Treino de Costas",
+  "alunoId": "123",
+  "instrutorId": "999",
+  "exercicios": ["Rosca Direta", "Crucifixo", "Banco Scot"]
+}
+
+### Listar todos os treinos salvos
+GET http://localhost:8080/treinos
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ3ZXNsZXlAcHVjLmNvbSIsInJvbGVzIjpbeyJhdXRob3JpdHkiOiJST0xFX1VTRVIifV0sImlhdCI6MTc3NTkxNDI0NCwiZXhwIjoxNzc1OTE3ODQ0fQ.R-XQMfBhUgyfeYZju-s_XWyh0lcz6CCwZuSMKOuBoKM
